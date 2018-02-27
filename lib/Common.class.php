@@ -446,4 +446,14 @@ class Common {
         );
         return $returnArray;
     }
+
+    /**
+     * 给定字符串是否为有效ip，且为外部ip（不是保留ip以及内部ip）
+     *
+     * @param $ip
+     * @return mixed
+     */
+    public function isExternalIp($ip) {
+        return filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE);
+    }
 }
